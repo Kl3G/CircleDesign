@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>애니메이션 예제</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let startTime = null;
+
+        function animate(t) {
+            if (!startTime) startTime = t; // 애니메이션 시작 시간 설정
+            const elapsed = t - startTime; // 경과 시간 계산
+
+            // 화면을 지웁니다.
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 경과 시간을 이용해 원의 위치 계산
+            const x = (elapsed / 10) % canvas.width; // 속도 조절
+            const y = canvas.height / 2;
+
+            // 파란색 원 그리기
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, Math.PI * 2);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+
+            // 다음 프레임을 요청합니다.
+            requestAnimationFrame(animate);
+        }
+
+        // 애니메이션을 시작합니다.
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>
