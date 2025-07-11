@@ -20,9 +20,12 @@ export class Circle{
 
     getY(){
 
-        let min = this.stageHeight / 5;
-        let max = this.stageHeight - min;
-        return min + Math.random() * (max - min);
+        // let min = this.stageHeight / 5;
+        // let max = this.stageHeight - min;
+        // return min + Math.random() * (max - min);
+        let height = this.stageHeight;
+        return Math.random() * height;
+       
     }
 
     draw(ctx, t, arrLength){
