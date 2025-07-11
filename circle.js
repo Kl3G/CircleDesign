@@ -37,7 +37,7 @@ export class Circle{
 
         this.int += 1;
 
-        if(this.points.length == 1500 * arrLength){
+        if(this.points.length == 2000 * arrLength){
 
             this.points.length = 0;
             ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
